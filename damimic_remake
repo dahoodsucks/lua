@@ -1,5 +1,6 @@
-local JumpScareID = "8604878451"
-local BackgroundID = "7910582982"
+local JumpScareID = getgenv().JumpscareID
+local BackgroundID = getgenv().BackgroundID
+local KeybindsEnabled = getgenv().Keybinds
 local ScriptStarted = false
 local Keybind = "E" 
 local Transparency = true 
@@ -20,7 +21,7 @@ local Part
 Part = Instance.new("Part", workspace)
 Part.Anchored = true
 Part.Size = Vector3.new(200, 1, 200)
-Part.CFrame = CFrame.new(0, -500, 0) --Set this to whatever you want, just far away from the map.
+Part.CFrame = CFrame.new(0, -500, 0) 
 Part.CanCollide = true
 FakeCharacter.Parent = workspace
 FakeCharacter.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
@@ -226,6 +227,70 @@ local args = {
 
 game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
 game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Invisible Toggle Loaded",["Text"] = "Enjoy this halal mode script",["Duration"] = 20,["Button1"] = "yessir"})
+if KeybindsEnabled == true then 
+game:GetService("UserInputService").InputBegan:Connect(
+  function(key, gamep)
+    if key.KeyCode == Enum.KeyCode.Z then
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
+            game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
+        end
+        
+        local args = {
+    [1] = "BoomboxStop"
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+local args = {
+    [1] = "Boombox",
+    [2] = "9045389581"
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+        end
+    end)
+
+game:GetService("UserInputService").InputBegan:Connect(
+  function(key, gamep) 
+    if key.KeyCode == Enum.KeyCode.C then
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
+            game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
+        end
+        
+        local args = {
+    [1] = "BoomboxStop"
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+local args = {
+    [1] = "Boombox",
+    [2] = "4929575301"
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+        end
+    end)
+
+game:GetService("UserInputService").InputBegan:Connect(
+  function(key, gamep) 
+    if key.KeyCode == Enum.KeyCode.V then
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
+            game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
+        end
+        
+        local args = {
+    [1] = "BoomboxStop"
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+local args = {
+    [1] = "Boombox",
+    [2] = "5890236784"
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+    end
+    end
+    end)
 
 local Humanoid = game.Players.LocalPlayer.Character.Humanoid;
 game.Players.LocalPlayer.Character.Head.OriginalSize:Destroy()
