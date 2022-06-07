@@ -288,9 +288,9 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
-    end
-    end
-    end)
+end
+end)
+end
 
 local Humanoid = game.Players.LocalPlayer.Character.Humanoid;
 game.Players.LocalPlayer.Character.Head.OriginalSize:Destroy()
