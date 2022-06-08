@@ -38,10 +38,9 @@ if Transparency then
       if v:IsA("BasePart") then
           v.Transparency = 0.7
           v.Color = Color3.fromRGB(186, 52, 52)
+          FakeCharacter:FindFirstChild("HumanoidRootPart").Transparency = 1
       elseif v:IsA("Accessory") then 
           v:Destroy()
-      elseif FakeCharacter:FindFirstChild("HumanoidRootPart") then 
-          FakeCharacter:FindFirstChild("HumanoidRootPart").Transparency = 1
       end
   end
 end
@@ -254,3 +253,4 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
 end
 end)
 end
+
