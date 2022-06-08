@@ -38,9 +38,17 @@ if Transparency then
       if v:IsA("BasePart") then
           v.Transparency = 0.7
           v.Color = Color3.fromRGB(186, 52, 52)
-          FakeCharacter:FindFirstChild("HumanoidRootPart").Transparency = 1
+          FakeCharacter.HumanoidRootPart.Transparency = 1
       elseif v:IsA("Accessory") then 
           v:Destroy()
+      elseif FakeCharacter.LeftLowerArm:FindFirstChild("CUFF") then 
+          FakeCharacter.LeftLowerArm:FindFirstChild("CUFF"):Destroy()
+      elseif FakeCharacter.RightLowerArm:FindFirstChild("CUFF") then 
+          FakeCharacter.RightLowerArm:FindFirstChild("CUFF"):Destroy()
+      elseif FakeCharacter.LeftLowerArm:FindFirstChild("CUFF") then 
+          FakeCharacter.LeftLowerArm:FindFirstChild("CUFF"):Destroy()
+      elseif FakeCharacter.RightLowerArm:FindFirstChild("CUFF") then 
+          FakeCharacter.RightLowerArm:FindFirstChild("CUFF"):Destroy()
       end
   end
 end
@@ -72,13 +80,7 @@ end
           clone.Parent = FakeCharacter
       end
   end
-  if Transparency then
-      for i, v in pairs(FakeCharacter:GetDescendants()) do
-          if v:IsA("BasePart") then
-              v.Transparency = 0.7
-          end
-      end
-  end
+
  RealCharacter.Humanoid.Died:Connect(function()
         RealCharacter.Humanoid:Destroy()
         FakeCharacter.Humanoid:Destroy()
