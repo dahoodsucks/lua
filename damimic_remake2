@@ -255,3 +255,12 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
 end
 end)
 end
+
+local SavedCFRAM = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].Head.CFrame wait(0.5)
+fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].ClickDetector) wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedCFRAM
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Mask") then 
+    game.Players.LocalPlayer.Backpack.Mask.Parent = game.Players.LocalPlayer.Character
+mouse1click()
+end
