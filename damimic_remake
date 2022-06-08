@@ -113,6 +113,9 @@ local function Invisible()
       for i, v in pairs(FakeCharacter:GetChildren()) do
           if v:IsA("LocalScript") then
               v.Disabled = false
+              if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then 
+              game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
+              end
               local args = {
     [1] = "BoomboxStop"
 }
@@ -144,6 +147,7 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
               v.Disabled = true
               if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then 
               game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
+              end
 local args = {
     [1] = "BoomboxStop"
 }
@@ -161,7 +165,7 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
       IsInvisible = false
   end
 end
-end
+
 game:GetService("UserInputService").InputBegan:Connect(
   function(key, gamep)
       if gamep then
