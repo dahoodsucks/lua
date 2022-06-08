@@ -521,5 +521,6 @@ fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $2
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedCFRAM
 if game.Players.LocalPlayer.Backpack:FindFirstChild("Mask") then 
     game.Players.LocalPlayer.Backpack.Mask.Parent = game.Players.LocalPlayer.Character
-mouse1click()
+    game.Players.LocalPlayer.Character["[Boombox]"].Parent = game.Players.LocalPlayer.Backpack
+game:GetService("VirtualUser"):ClickButton1(Vector2.new(125,125)) 
 end
