@@ -48,17 +48,12 @@ end
 local CanInvis = true
 function RealCharacterDied()
   CanInvis = false
-  for i, v in pairs(RealCharacter:GetChildren()) do
-            if v:IsA("BasePart") or v:IsA("Part") or v:IsA("MeshPart") then
-                if v.Name ~= "HumanoidRootPart" then
-                    v:Destroy()
+          RealCharacter.Humanoid:Destroy()
+        FakeCharacter.Humanoid:Destroy()
   RealCharacter = Player.Character
   CanInvis = true
   isinvisible = false
-  for i, v in pairs(FakeCharacter:GetChildren()) do
-            if v:IsA("BasePart") or v:IsA("Part") or v:IsA("MeshPart") then
-                if v.Name ~= "HumanoidRootPart" then
-                    v:Destroy()
+  FakeCharacter.Humanoid:Destroy()
   workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
 
   RealCharacter.Archivable = true
@@ -71,11 +66,6 @@ function RealCharacterDied()
   Part.CanCollide = true
   FakeCharacter.Parent = workspace
   FakeCharacter.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
-                end
-            end
-        end
-    end
-end
 end
   for i, v in pairs(RealCharacter:GetChildren()) do
       if v:IsA("LocalScript") then
@@ -92,40 +82,13 @@ end
       end
   end
  RealCharacter.Humanoid.Died:Connect(function()
-        for i, v in pairs(RealCharacter:GetChildren()) do
-            if v:IsA("BasePart") or v:IsA("Part") or v:IsA("MeshPart") then
-                if v.Name ~= "HumanoidRootPart" then
-                    v:Destroy()
-        for i, v in pairs(FakeCharacter:GetChildren()) do
-            if v:IsA("BasePart") or v:IsA("Part") or v:IsA("MeshPart") then
-                if v.Name ~= "HumanoidRootPart" then
-                    v:Destroy()
-                                    end
-            end
-        end
-    end
-end
-        end
+        RealCharacter.Humanoid:Destroy()
+        FakeCharacter.Humanoid:Destroy()
  end)
  
  Player.CharacterAppearanceLoaded:Connect(RealCharacterDied)
-end
-RealCharacter.Humanoid.Died:Connect(function()
-        for i, v in pairs(RealCharacter:GetChildren()) do
-            if v:IsA("BasePart") or v:IsA("Part") or v:IsA("MeshPart") then
-                if v.Name ~= "HumanoidRootPart" then
-                    v:Destroy()
-        for i, v in pairs(FakeCharacter:GetChildren()) do
-            if v:IsA("BasePart") or v:IsA("Part") or v:IsA("MeshPart") then
-                if v.Name ~= "HumanoidRootPart" then
-                    v:Destroy()
-                                    end
-            end
-        end
-    end
-end
-        end
- end)
+
+
 Player.CharacterAppearanceLoaded:Connect(RealCharacterDied)
 local PseudoAnchor
 game:GetService "RunService".RenderStepped:Connect(
@@ -169,6 +132,7 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
       IsInvisible = true
   else
       local StoredCF = FakeCharacter.HumanoidRootPart.CFrame
+      RealCharacter.HumanoidRootPart.CFrame = CFrame.new(9999, 9999, 9999)
       FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame
      
       RealCharacter.HumanoidRootPart.CFrame = StoredCF
