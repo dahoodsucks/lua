@@ -195,6 +195,9 @@ game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Invisible
 if KeybindsEnabled == true then 
 game:GetService("UserInputService").InputBegan:Connect(
   function(key, gamep)
+      if gamep then
+          return
+      end
     if key.KeyCode == Enum.KeyCode.Z then
         if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
             game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
@@ -216,6 +219,9 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
 
 game:GetService("UserInputService").InputBegan:Connect(
   function(key, gamep) 
+      if gamep then
+          return
+      end
     if key.KeyCode == Enum.KeyCode.C then
         if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
             game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
@@ -236,7 +242,10 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
     end)
 
 game:GetService("UserInputService").InputBegan:Connect(
-  function(key, gamep) 
+  function(key, gamep)
+      if gamep then
+          return
+      end
     if key.KeyCode == Enum.KeyCode.V then
         if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
             game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
@@ -256,6 +265,9 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
 end
 end)
 end
+
+game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
+game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
 
 local SavedCFRAM = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].Head.CFrame wait(0.5)
