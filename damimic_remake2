@@ -56,6 +56,7 @@ local CanInvis = true
 function RealCharacterDied()
   CanInvis = false
           RealCharacter.Humanoid:Destroy()
+          FakeCharacter.Humanoid:Destroy()
   RealCharacter = Player.Character
   CanInvis = true
   isinvisible = false
