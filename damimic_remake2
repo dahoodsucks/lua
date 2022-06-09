@@ -2,7 +2,7 @@ local JumpScareID = getgenv().JumpscareID
 local BackgroundID = getgenv().BackgroundID
 local KeybindsEnabled = getgenv().Keybinds
 local ScriptStarted = false
-local Keybind = "E" 
+local Keybind = getgenv().InvisibleKeybind
 local Transparency = true 
 local NoClip = false 
 
