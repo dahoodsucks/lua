@@ -181,6 +181,18 @@ local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://232127604"
 Sound:Play()
 
+Player.Chatted:Connect(function(msg)
+if msg:sub(1, 6) == "!goto " then
+    local player
+    for i, plr in ipairs(game.Players:GetPlayers()) do
+    if string.lower(plr.Name):sub(1, string.len(msg:sub(7))) == string.lower(msg:sub(7)) then
+        player = plr.Name
+    end
+    end
+FakeCharacter.HumanoidRootPart.CFrame = game.Players[player].Character.HumanoidRootPart.CFrame
+end
+end)
+
 if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then 
 game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
 game.Players.LocalPlayer.Character["[Boombox]"].Handle:Destroy()
@@ -275,6 +287,8 @@ fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $2
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedCFRAM
 if game.Players.LocalPlayer.Backpack:FindFirstChild("Mask") then 
     game.Players.LocalPlayer.Backpack.Mask.Parent = game.Players.LocalPlayer.Character
+    if game.Players.LocalPlayer.Character:FindFirstChild("[Boombox]") then 
     game.Players.LocalPlayer.Character["[Boombox]"].Parent = game.Players.LocalPlayer.Backpack
 game:GetService("VirtualUser"):ClickButton1(Vector2.new(125,125)) 
+end
 end
