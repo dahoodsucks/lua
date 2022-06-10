@@ -59,7 +59,7 @@ function RealCharacterDied()
           FakeCharacter.Humanoid:Destroy()
   RealCharacter = Player.Character
   CanInvis = true
-  isinvisible = false
+  IsInvisible = false
   FakeCharacter.Humanoid:Destroy()
   workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
 
@@ -210,7 +210,7 @@ game:GetService("UserInputService").InputBegan:Connect(
       if gamep then
           return
       end
-    if key.KeyCode == Enum.KeyCode.Z then
+    if key.KeyCode == Enum.KeyCode.Z and IsInvisible == false then
         if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
             game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
         end
@@ -234,7 +234,7 @@ game:GetService("UserInputService").InputBegan:Connect(
       if gamep then
           return
       end
-    if key.KeyCode == Enum.KeyCode.C then
+    if key.KeyCode == Enum.KeyCode.C and IsInvisible == false then
         if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
             game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
         end
@@ -258,7 +258,7 @@ game:GetService("UserInputService").InputBegan:Connect(
       if gamep then
           return
       end
-    if key.KeyCode == Enum.KeyCode.V then
+    if key.KeyCode == Enum.KeyCode.V and IsInvisible == false then
         if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
             game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
         end
