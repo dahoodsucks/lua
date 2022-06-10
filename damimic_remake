@@ -3,7 +3,7 @@ local BackgroundID = getgenv().BackgroundID
 local KeybindsEnabled = getgenv().Keybinds
 local ScriptStarted = false
 local Keybind = getgenv().InvisibleKeybind
-local Transparency = true 
+local Transparency = true
 local NoClip = false 
 local InvisColor = getgenv().InvisibleColor
 -- dont edit anything down here btw made by some guy#6909 da mimic remake lol 
