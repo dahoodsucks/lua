@@ -5,7 +5,7 @@ local ScriptStarted = false
 local Keybind = getgenv().InvisibleKeybind
 local Transparency = true 
 local NoClip = false 
-
+local InvisColor = getgenv().InvisibleColor
 -- dont edit anything down here btw made by some guy#6909 da mimic remake lol 
 -- dont skid my script the only reason this is unobfuscated is because its public 
 
@@ -37,7 +37,7 @@ if Transparency then
   for i, v in pairs(FakeCharacter:GetDescendants()) do
       if v:IsA("BasePart") then
           v.Transparency = 0.7
-          v.Color = Color3.fromRGB(getgenv().InvisibleColor)
+          v.Color = Color3.fromRGB(InvisColor)
           FakeCharacter.HumanoidRootPart.Transparency = 1
       elseif v:IsA("Accessory") then 
           v:Destroy()
