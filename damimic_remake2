@@ -5,7 +5,7 @@ local ScriptStarted = false
 local Keybind = getgenv().InvisibleKeybind
 local Transparency = true 
 local NoClip = false 
-
+local teleportservice = game:GetService("TeleportService")
 -- dont edit anything down here btw made by some guy#6909 da mimic remake lol 
 -- dont skid my script the only reason this is unobfuscated is because its public 
 
@@ -190,6 +190,8 @@ if msg:sub(1, 6) == "!goto " then
     end
     end
 FakeCharacter.HumanoidRootPart.CFrame = game.Players[player].Character.HumanoidRootPart.CFrame
+elseif string.lower(msg) == "!rejoin" then
+teleportservice:Teleport(game.PlaceId, plr)
 end
 end)
 
@@ -277,9 +279,6 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
 end
 end)
 end
-
-game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
-game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
 
 local SavedCFRAM = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].Head.CFrame wait(0.5)
