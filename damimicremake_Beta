@@ -292,17 +292,6 @@ end
 end)
 end
 
-local SavedCFRAM = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].Head.CFrame wait(0.5)
-fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].ClickDetector) wait(0.5)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedCFRAM
-if game.Players.LocalPlayer.Backpack:FindFirstChild("Mask") then 
-    game.Players.LocalPlayer.Backpack.Mask.Parent = game.Players.LocalPlayer.Character
-    if game.Players.LocalPlayer.Character:FindFirstChild("[Boombox]") then 
-    game.Players.LocalPlayer.Character["[Boombox]"].Parent = game.Players.LocalPlayer.Backpack
-game:GetService("VirtualUser"):ClickButton1(Vector2.new(125,125)) 
-end
-end
 if TitanEnabled == true then 
 local Humanoid = game.Players.LocalPlayer.Character.Humanoid;
 game.Players.LocalPlayer.Character.Head.OriginalSize:Destroy()
@@ -562,4 +551,16 @@ Humanoid:FindFirstChild("HeadScale"):Destroy()
 wait(1)
 game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
 game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+end
+
+local SavedCFRAM = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].Head.CFrame wait(0.5)
+fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].ClickDetector) wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedCFRAM
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Mask") then 
+    game.Players.LocalPlayer.Backpack.Mask.Parent = game.Players.LocalPlayer.Character
+    if game.Players.LocalPlayer.Character:FindFirstChild("[Boombox]") then 
+    game.Players.LocalPlayer.Character["[Boombox]"].Parent = game.Players.LocalPlayer.Backpack
+game:GetService("VirtualUser"):ClickButton1(Vector2.new(125,125)) 
+end
 end
