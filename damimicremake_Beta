@@ -165,11 +165,11 @@ local args = {
 game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
       IsInvisible = true
   else
-      local StoredCF = FakeCharacter.HumanoidRootPart.CFrame * CFrame.new(0, 0, -35)
+      local StoredCF = FakeCharacter.HumanoidRootPart.CFrame 
       RealCharacter.HumanoidRootPart.CFrame = CFrame.new(9999, 9999, 9999)
       FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame
      
-      RealCharacter.HumanoidRootPart.CFrame = StoredCF
+      RealCharacter.HumanoidRootPart.CFrame = StoredCF * CFrame.new(0, 0, -35)
      
       FakeCharacter.Humanoid:UnequipTools()
       Player.Character = RealCharacter
