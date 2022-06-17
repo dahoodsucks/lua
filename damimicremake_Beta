@@ -187,12 +187,12 @@ Sound.SoundId = "rbxassetid://232127604"
 Sound:Play()
 while IsInvisible == false do 
     FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -9.5, 0)
-    RunService.Heartbeat:Wait()
+    game:GetService("RunService").Heartbeat:Wait()
 end 
 
 while IsInvisible == true do 
     RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -9.5, 0)
-    RunService.Heartbeat:Wait()
+    game:GetService("RunService").Heartbeat:Wait()
     end
 Player.Chatted:Connect(function(msg)
 if msg:sub(1, 6) == "!goto " then
