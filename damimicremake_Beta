@@ -1,4 +1,3 @@
--- THIS IS FOR TESTING PLEASE DO NOT RUN THIS
 local JumpScareID = getgenv().JumpscareID
 local BackgroundID = getgenv().BackgroundID
 local KeybindsEnabled = getgenv().AudioKeybinds
@@ -187,11 +186,13 @@ local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://232127604"
 Sound:Play()
 while IsInvisible == false do 
-    FakeCharacter.HumanoidRootPart.CFrame = RealCharacter * CFrame.new(0, -9.5, 0)
-end
+    FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -9.5, 0)
+    RunService.Heartbeat:Wait()
+end 
 
 while IsInvisible == true do 
-    RealCharacter.HumanoidRootPart.CFrame = FakeCharacter * CFrame.new(0, -9.5, 0)
+    RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -9.5, 0)
+    RunService.Heartbeat:Wait()
     end
 Player.Chatted:Connect(function(msg)
 if msg:sub(1, 6) == "!goto " then
