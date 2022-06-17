@@ -1,10 +1,11 @@
 local JumpScareID = getgenv().JumpscareID
 local BackgroundID = getgenv().BackgroundID
-local KeybindsEnabled = getgenv().Keybinds
+local KeybindsEnabled = getgenv().AudioKeybinds
 local ScriptStarted = false
 local Keybind = getgenv().InvisibleKeybind
 local Transparency = true
 local NoClip = false 
+local TitanEnabled = getgenv().Titan 
 
 -- dont edit anything down here btw made by some guy#6909 da mimic remake lol 
 -- dont skid my script the only reason this is unobfuscated is because its public 
@@ -278,6 +279,7 @@ end
 end)
 end
 
+if TitanEnabled == true then 
 local Humanoid = game.Players.LocalPlayer.Character.Humanoid;
 game.Players.LocalPlayer.Character.Head.OriginalSize:Destroy()
 game.Players.LocalPlayer.Character.Head.FaceCenterAttachment.OriginalPosition:Destroy()
@@ -536,6 +538,7 @@ Humanoid:FindFirstChild("HeadScale"):Destroy()
 wait(1)
 game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
 game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+end 
 
 local SavedCFRAM = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Surgeon Mask] - $25"].Head.CFrame wait(0.5)
