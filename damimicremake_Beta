@@ -81,19 +81,14 @@ end
 
 
 Player.CharacterAppearanceLoaded:Connect(RealCharacterDied)
-local PseudoAnchor
 game:GetService "RunService".RenderStepped:Connect(
   function()
-      if PseudoAnchor ~= nil then
-          PseudoAnchor.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
-      end
        if NoClip then
       FakeCharacter.Humanoid:ChangeState(11)
        end
   end
 )
 
-PseudoAnchor = FakeCharacter.HumanoidRootPart
 local function Invisible()
   if IsInvisible == false then
       local StoredCF = RealCharacter.HumanoidRootPart.CFrame
@@ -102,7 +97,6 @@ local function Invisible()
       RealCharacter.Humanoid:UnequipTools()
       Player.Character = FakeCharacter
       workspace.CurrentCamera.CameraSubject = FakeCharacter.Humanoid
-      PseudoAnchor = RealCharacter.HumanoidRootPart
       for i, v in pairs(FakeCharacter:GetChildren()) do
           if v:IsA("LocalScript") then
               v.Disabled = false
@@ -135,7 +129,6 @@ end
       FakeCharacter.Humanoid:UnequipTools()
       Player.Character = RealCharacter
       workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
-      PseudoAnchor = FakeCharacter.HumanoidRootPart
       for i, v in pairs(FakeCharacter:GetChildren()) do
           if v:IsA("LocalScript") then
               v.Disabled = true
