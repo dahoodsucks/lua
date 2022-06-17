@@ -99,8 +99,9 @@ local function Invisible()
       for i, v in pairs(FakeCharacter:GetChildren()) do
           if v:IsA("LocalScript") then
               v.Disabled = false
+              FakeCharacter.HumanoidRootPart.BodyVelocity:Destroy()
                       Float = Instance.new("BodyVelocity")
-        Float.Parent = LocalPlayer.Character.HumanoidRootPart
+        Float.Parent = RealCharacter.HumanoidRootPart
         Float.MaxForce = Vector3.new(100000, 100000, 100000)
         Float.Velocity = Vector3.new(0, 0, 0)
         wait(0.25)
@@ -125,8 +126,9 @@ end
       IsInvisible = true
       
   else
+      RealCharacter.HumanoidRootPart.BodyVelocity:Destroy()
                       Float = Instance.new("BodyVelocity")
-        Float.Parent = LocalPlayer.Character.HumanoidRootPart
+        Float.Parent = FakeCharacter.HumanoidRootPart
         Float.MaxForce = Vector3.new(100000, 100000, 100000)
         Float.Velocity = Vector3.new(0, 0, 0)
         wait(0.25)
