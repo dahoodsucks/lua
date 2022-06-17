@@ -99,6 +99,13 @@ local function Invisible()
       for i, v in pairs(FakeCharacter:GetChildren()) do
           if v:IsA("LocalScript") then
               v.Disabled = false
+                      Float = Instance.new("BodyVelocity")
+        Float.Parent = LocalPlayer.Character.HumanoidRootPart
+        Float.MaxForce = Vector3.new(100000, 100000, 100000)
+        Float.Velocity = Vector3.new(0, 0, 0)
+        wait(0.25)
+        RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -11.5, 0)
+        
                   if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]"):FindFirstChild("Handle") then 
 game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]"):FindFirstChild("Handle"):Destroy()
 end
@@ -113,11 +120,17 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
-          end
-      end
+end
 end
       IsInvisible = true
+      
   else
+                      Float = Instance.new("BodyVelocity")
+        Float.Parent = LocalPlayer.Character.HumanoidRootPart
+        Float.MaxForce = Vector3.new(100000, 100000, 100000)
+        Float.Velocity = Vector3.new(0, 0, 0)
+        wait(0.25)
+        FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -11.5, 0)
       local StoredCF = FakeCharacter.HumanoidRootPart.CFrame
       RealCharacter.HumanoidRootPart.CFrame = CFrame.new(9999, 9999, 9999)
       FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame
@@ -150,7 +163,6 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
   end
       IsInvisible = false
   end
-end
 
 game:GetService("UserInputService").InputBegan:Connect(
   function(key, gamep)
@@ -168,13 +180,13 @@ local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://232127604"
 Sound:Play()
 while IsInvisible == false do 
-    FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -9.5, 0)
-    game:GetService("RunService").Heartbeat:Wait()
+    FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -11.5, 0)
+    wait(0.05)
 end 
 
 while IsInvisible == true do 
-    RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -9.5, 0)
-    game:GetService("RunService").Heartbeat:Wait()
+    RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame * CFrame.new(0, -11.5, 0)
+    wait(0.05)
     end
 Player.Chatted:Connect(function(msg)
 if msg:sub(1, 6) == "!goto " then
@@ -199,6 +211,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
 game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Invisible Toggle Loaded",["Text"] = "Enjoy this halal mode script",["Duration"] = 20,["Button1"] = "yessir"})
+
 if KeybindsEnabled == true then 
 game:GetService("UserInputService").InputBegan:Connect(
   function(key, gamep)
@@ -543,5 +556,6 @@ if game.Players.LocalPlayer.Backpack:FindFirstChild("Mask") then
     if game.Players.LocalPlayer.Character:FindFirstChild("[Boombox]") then 
     game.Players.LocalPlayer.Character["[Boombox]"].Parent = game.Players.LocalPlayer.Backpack
 game:GetService("VirtualUser"):ClickButton1(Vector2.new(125,125)) 
-end
-end
+
+end 
+end 
