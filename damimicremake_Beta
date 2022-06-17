@@ -1,4 +1,3 @@
--- dont execute this may get u banned, YOU HAVE BEEN WARNED 
 local JumpScareID = getgenv().JumpscareID
 local BackgroundID = getgenv().BackgroundID
 local KeybindsEnabled = getgenv().AudioKeybinds
@@ -144,7 +143,56 @@ game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
       IsInvisible = false
   end
 
+local function Invisible2()
+  if IsInvisible == false then
+      local StoredCF = RealCharacter.HumanoidRootPart.CFrame
+      RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame
+      FakeCharacter.HumanoidRootPart.CFrame = StoredCF
+      RealCharacter.Humanoid:UnequipTools()
+      Player.Character = FakeCharacter
+      workspace.CurrentCamera.CameraSubject = FakeCharacter.Humanoid
+      PseudoAnchor = RealCharacter.HumanoidRootPart
+              local args = {
+    [1] = "BoomboxStop"
+}
 
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+local args = {
+    [1] = "Boombox",
+    [2] = BackgroundID
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+      IsInvisible = true
+  else
+      local StoredCF = FakeCharacter.HumanoidRootPart.CFrame * CFrame.new(0, 0, -35)
+      RealCharacter.HumanoidRootPart.CFrame = CFrame.new(9999, 9999, 9999)
+      FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame
+     
+      RealCharacter.HumanoidRootPart.CFrame = StoredCF
+     
+      FakeCharacter.Humanoid:UnequipTools()
+      Player.Character = RealCharacter
+      workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
+      PseudoAnchor = FakeCharacter.HumanoidRootPart
+              if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") then 
+              game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
+local args = {
+    [1] = "BoomboxStop"
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
+              local args = {
+    [1] = "Boombox",
+    [2] = JumpScareID
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+          end
+      end
+      IsInvisible = false
+  end
 
 game:GetService("UserInputService").InputBegan:Connect(
   function(key, gamep)
@@ -158,6 +206,21 @@ game:GetService("UserInputService").InputBegan:Connect(
       end
   end
 )
+
+
+game:GetService("UserInputService").InputBegan:Connect(
+  function(key, gamep)
+      if gamep then
+          return
+      end
+      if key.KeyCode.Name:lower() == Keybind:lower() and CanInvis and RealCharacter and FakeCharacter then
+          if RealCharacter:FindFirstChild("HumanoidRootPart") and FakeCharacter:FindFirstChild("HumanoidRootPart") then
+              Invisible2()
+          end
+      end
+  end
+)
+
 local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://232127604"
 Sound:Play()
