@@ -120,7 +120,10 @@ local function Invisible()
       for i, v in pairs(FakeCharacter:GetChildren()) do
           if v:IsA("LocalScript") then
               v.Disabled = false
-              if AutomaticBackground == true then 
+              if AutomaticBackground then
+                  if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]"):FindFirstChild("Handle") then 
+game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]"):FindFirstChild("Handle"):Destroy()
+end
               local args = {
     [1] = "BoomboxStop"
 }
@@ -150,8 +153,10 @@ end
       for i, v in pairs(FakeCharacter:GetChildren()) do
           if v:IsA("LocalScript") then
               v.Disabled = true
-              if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]") and AutomaticJumpscare then 
-              game.Players.LocalPlayer.Backpack["[Boombox]"].Parent = game.Players.LocalPlayer.Character
+              if AutomaticJumpscare then 
+if game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]"):FindFirstChild("Handle") then 
+    game.Players.LocalPlayer.Backpack:FindFirstChild("[Boombox]"):FindFirstChild("Handle"):Destroy()
+    end
 local args = {
     [1] = "BoomboxStop"
 }
